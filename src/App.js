@@ -17,9 +17,16 @@ function App() {
     }
   }
 
-  const handleAddingScore = () => {
-    setScore(score + 1);
-  };
+  // const handleAddingScore = () => {
+  //   setScore(score + 1);
+  // };
+
+  const calculateScore = (event) => {
+    const answer = event.target.value;
+    if (output == answer){
+      setScore(score + 1);
+    }
+  }
 
   const handleReset = () => {
     setScore(0);
@@ -29,7 +36,7 @@ function App() {
   useEffect(() => {
     console.log("Trigger")
     if (number % 3 === 0 && number % 5 === 0){
-      setOutput("Fizzbuzz");
+      setOutput("FizzBuzz");
     } else if (number % 3 === 0) {
       setOutput("Fizz");
     } else if (number % 5 === 0) {
@@ -41,12 +48,18 @@ function App() {
 
   return (
     <div>
-      <h1>Output: {output}</h1>
+      {/* <h1>Output: {output}</h1> */}
       <button onClick={handleAdding}>+</button>
       <button onClick={handleMinus}>-</button>
       
       <p>{number}</p>
-      <button onClick={handleAddingScore}>Correct</button>
+      {/* <button onClick={handleAddingScore}>Correct</button> */}
+      <button value="Fizz" onClick={calculateScore}>Fizz</button>
+      <button value="Buzz" onClick={calculateScore}>Buzz</button>
+      <button value="FizzBuzz" onClick={calculateScore}>FizzBuzz</button>
+      <button value={number} onClick={calculateScore}>Number</button>
+      <br />
+      <br />
       <button onClick={handleReset}>Reset</button>
 
       <p>ScoreTally: {score}</p>
