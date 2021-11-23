@@ -7,15 +7,15 @@ function App() {
   let [output,setOutput] = useState("");
   let [score,setScore] = useState(0);
  
-  const handleAdding = () => {
-    setNumber(number + 1)
-  }
+  // const handleAdding = () => {
+  //   setNumber(number + 1)
+  // }
 
-  const handleMinus = () => {
-    if (number > 1){
-      setNumber(number - 1)
-    }
-  }
+  // const handleMinus = () => {
+  //   if (number > 1){
+  //     setNumber(number - 1)
+  //   }
+  // }
 
   // const handleAddingScore = () => {
   //   setScore(score + 1);
@@ -25,7 +25,11 @@ function App() {
     const answer = event.target.value;
     if (output == answer){
       setScore(score + 1);
+      setNumber(number + 1);
+    } else {
+      handleReset()
     }
+
   }
 
   const handleReset = () => {
@@ -49,8 +53,8 @@ function App() {
   return (
     <div>
       {/* <h1>Output: {output}</h1> */}
-      <button onClick={handleAdding}>+</button>
-      <button onClick={handleMinus}>-</button>
+      {/* <button onClick={handleAdding}>+</button>
+      <button onClick={handleMinus}>-</button> */}
       
       <p>{number}</p>
       {/* <button onClick={handleAddingScore}>Correct</button> */}
